@@ -1,0 +1,26 @@
+{
+  "name": "angularmaps",
+  "description": "cobain app pake google maps api jos",
+  "main": "index.js",
+  "authors": [
+    "Edric Laksa Putra"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "edric",
+    "laksa",
+    "putra",
+    "maps",
+    "google",
+    "api",
+    "test"
+  ],
+  "homepage": "https://github.com/edriclaksaputra/angularmaps",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

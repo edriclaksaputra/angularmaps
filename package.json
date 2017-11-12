@@ -1,0 +1,34 @@
+{
+  "name": "angularmaps",
+  "version": "1.0.0",
+  "description": "cobain app pake google maps api jos",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edriclaksaputra/angularmaps.git"
+  },
+  "scripts": {
+    "test": "-test",
+    "start": "http-server ./ -a localhost -p 9095 -c-1 -o"
+  },
+  "keywords": [
+    "edric",
+    "laksa",
+    "putra",
+    "maps",
+    "google",
+    "api",
+    "test"
+  ],
+  "author": "Edric Laksa Putra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edriclaksaputra/angularmaps/issues"
+  },
+  "homepage": "https://github.com/edriclaksaputra/angularmaps#readme"
+}
