@@ -1,10 +1,18 @@
 /**
 Author : Edric Laksa Putra
-Since : June 2017
+Since : November 2017
 */
-cbtApp.controller('IndexController', ['$scope', '$state', 'AdminServices', function($scope, $state, AdminServices){
+mapapp.controller('IndexController', ['$scope', '$state', 'IndexServices', function($scope, $state, IndexServices){
 
-	//cek token masih ada atau tidak pake API, bila tidak ada : 
-	$state.go("loginauthentification");
+	$scope.zoom = 7;
+	$scope.center = "[35.6603089, 137.0242535]";
+
+	IndexServices.listUsers().then(function(res){
+		$scope.listUsers = res.data;
+	});
+
+	$scope.showCityInfo = function(event, detail){
+		alert("Username : "+detail.username+"\nName : "+detail.first_name+" "+detail.last_name+"\nEmail : "+detail.email);
+	}
 
 }])
