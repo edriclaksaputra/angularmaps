@@ -22,5 +22,11 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular-material": "^1.1.5",
+    "angular-ui-router": "^1.0.10",
+    "ngmap": "^1.18.4",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1"
+  }
 }
