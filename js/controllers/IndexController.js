@@ -10,7 +10,6 @@ mapapp.controller('IndexController', ['$scope', '$state', 'IndexServices', 'NgMa
     });
 
   	$scope.zoom = 7;
-	$scope.center = "[35.6603089, 137.0242535]";
 
 	IndexServices.listUsers().then(function(res){
 		vm.listUsers = res.data;
@@ -26,7 +25,7 @@ mapapp.controller('IndexController', ['$scope', '$state', 'IndexServices', 'NgMa
 	}
 
 	$scope.goto = function(lat, long){
-
+		$scope.center = "["+lat+","+long+"]";
 	}
 
 	vm.showStore = function (e, location) {
