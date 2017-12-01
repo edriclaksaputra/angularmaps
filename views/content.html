@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-controller="IndexController" ng-init="init()">
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Where's the Person (?!)</h1>
@@ -11,11 +11,26 @@
                     Person's Location
                 </div>
                 <div class="panel-body">
-                    <ng-map default-style="true" zoom="{{zoom}}" center="{{center}}">
+                    <div ng-app="mapapp" ng-controller="IndexController as vm">
+                        <ng-map default-style="true" zoom="{{zoom}}" center="{{center}}">
 
-                        <!-- kasih marker -->
-                        <marker ng-repeat="location in listUsers" position="{{location.latitude}}, {{location.longitude}}" id="{{location.username}}" title="Here is the location of {{location.username}}" on-click="showCityInfo(event, location)"></marker>
-                    </ng-map>
+                            <!-- kasih marker -->
+                            <marker ng-repeat="location in vm.listUsers" position="{{location.latitude}}, {{location.longitude}}" id="{{location.username}}" title="Here is the location of {{location.username}}" on-click="vm.showStore(event, location)">
+                            </marker>
+                            <info-window id="bar" max-width="200">
+                                <div ng-non-bindable>
+                                  <div id="siteNotice"></div>
+                                  <h4 id="firstHeading" class="firstHeading">{{vm.location.username}}</h4>
+                                  <div id="bodyContent">
+                                    Name : {{vm.location.first_name}} {{vm.location.last_name}}<br/>
+                                    Email : {{vm.location.email}} <br/>
+                                    Latitude : {{vm.location.latitude}}<br/>
+                                    Longitude : {{vm.location.longitude}}
+                                  </div>
+                                </div>
+                            </info-window>
+                        </ng-map>
+                    </div>
                 </div>
             </div>
         </div>
@@ -39,6 +54,7 @@
                                     <th>Username</th>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Go to Location</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,6 +63,7 @@
                                 <td>{{user.username}}</td>
                                 <td>{{user.first_name}} {{user.last_name}}</td>
                                 <td>{{user.email}}</td>
+                                <td><button class="btn btn-info" ng-click="goto(user.latitude, user.longitude)">Go</button></td>
                             </tr>
                             </tbody>
                         </table>

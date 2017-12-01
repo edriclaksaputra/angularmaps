@@ -2,12 +2,18 @@
 Author : Edric Laksa Putra
 Since : November 2017
 */
-mapapp.controller('IndexController', ['$scope', '$state', 'IndexServices', function($scope, $state, IndexServices){
+mapapp.controller('IndexController', ['$scope', '$state', 'IndexServices', 'NgMap',  function($scope, $state, IndexServices, NgMap){
 
-	$scope.zoom = 7;
+	var vm = this;
+	NgMap.getMap().then(function (map) {
+      vm.map = map;
+    });
+
+  	$scope.zoom = 7;
 	$scope.center = "[35.6603089, 137.0242535]";
 
 	IndexServices.listUsers().then(function(res){
+		vm.listUsers = res.data;
 		$scope.listUsers = res.data;
 	});
 
@@ -15,4 +21,16 @@ mapapp.controller('IndexController', ['$scope', '$state', 'IndexServices', funct
 		alert("Username : "+detail.username+"\nName : "+detail.first_name+" "+detail.last_name+"\nEmail : "+detail.email);
 	}
 
+	$scope.init = function(){
+		
+	}
+
+	$scope.goto = function(lat, long){
+
+	}
+
+	vm.showStore = function (e, location) {
+		vm.location = location;
+        vm.map.showInfoWindow('bar', this);
+    };
 }])
