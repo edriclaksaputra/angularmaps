@@ -1,4 +1,4 @@
-# angularmaps
+# Angularmaps
 Cobain App pake Google Maps API. Author by : Edric Laksa Putra
 
 Aplikasi penentu lokasi dari user dengan menggunakan Google Maps. Data user yang didapat dari open API yang berisi informasi latitude dan longitude user.
